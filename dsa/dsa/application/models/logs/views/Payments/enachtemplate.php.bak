@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Checkout Demo</title>
+<meta name="viewport" content="width=device-width" />
+
+<script src="https://www.paynimo.com/paynimocheckout/client/lib/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.paynimo.com/Paynimocheckout/server/lib/checkout.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	
+    function handleResponse(res) {
+        if (typeof res != 'undefined' && typeof res.paymentMethod != 'undefined' && typeof res.paymentMethod.paymentTransaction != 'undefined' && typeof res.paymentMethod.paymentTransaction.statusCode != 'undefined' && res.paymentMethod.paymentTransaction.statusCode == '0300') {
+           
+		   
+			
+			// success block
+        } else if (typeof res != 'undefined' && typeof res.paymentMethod != 'undefined' && typeof res.paymentMethod.paymentTransaction != 'undefined' && typeof res.paymentMethod.paymentTransaction.statusCode != 'undefined' && res.paymentMethod.paymentTransaction.statusCode == '0398') {
+            // initiated block
+			
+			alert('Test');
+
+        } else {
+            // error block
+        }
+    };
+
+    $(document).off('click', '#btnSubmit').on('click', '#btnSubmit', function(e) {
+        e.preventDefault();
+
+//T764243|15632|2||60091701|9999999999|test@yahoo.com|20-07-2022|07-10-2022|100|M|ADHO|||||9713751370GPPGFH
+
+
+            var configJson = {
+            'tarCall': false,
+            'features': {
+                'showPGResponseMsg': true,
+				'enableAbortResponse': true,
+                'enableNewWindowFlow': true,    //for hybrid applications please disable this by passing false
+                'enableExpressPay':true,
+                'siDetailsAtMerchantEnd':true,
+                'enableSI':true
+				
+            },
+			
+            'consumerData': {
+                'deviceId': 'WEBSH2', //possible values 'WEBSH1', 'WEBSH2' and 'WEBMD5'
+                'token': '36484fa2be07a5f8a0cf161d290b8fcfd41918541c5ddb939acc79bb0041d9d32a30a783120cff54b7b5d4fb0004248c608d46d27afaf87994640d67a06a5b1b',
+                'returnUrl': 'https://www.tekprocess.co.in/MerchantIntegrationClient/MerchantResponsePage.jsp',
+                'responseHandler': handleResponse,
+                'paymentMode': 'all',
+                'merchantLogoUrl': 'https://www.paynimo.com/CompanyDocs/company-logo-md.png',  //provided merchant logo will be displayed
+                'merchantId': 'T764243',
+                'currency': 'INR',
+                'consumerId': '60091701',  //Your unique consumer identifier to register a eMandate/eSign
+				'consumerMobileNo': '9999999999',
+                'consumerEmailId': 'test@yahoo.com',
+                'txnId': '15632',   //Unique merchant transaction ID
+                'items': [{
+                    'itemId': 'FIRST',
+                    'amount': '2',
+                    'comAmt': '0'
+                }],
+                'customStyle': {
+                    'PRIMARY_COLOR_CODE': '#3977b7',   //merchant primary color code
+                    'SECONDARY_COLOR_CODE': '#FFFFFF',   //provide merchant's suitable color code
+                    'BUTTON_COLOR_CODE_1': '#1969bb',   //merchant's button background color code
+                    'BUTTON_COLOR_CODE_2': '#FFFFFF'   //provide merchant's suitable color code for button text
+                },
+                //'accountNo': '1234567',    //Pass this if accountNo is captured at merchant side for eMandate/eSign
+              //  'accountType': 'Saving',    //  Available options Saving, Current and CC for Cash Credit, only for eSign
+               // 'accountHolderName': 'TEST',  //Pass this if accountHolderName is captured at merchant side for eSign only(Note: For ICICI eMandate registration this is mandatory field, if not passed from merchant Customer need to enter in Checkout UI)
+               // 'ifscCode': 'ICIC0000001',        //Pass this if ifscCode is captured at merchant side for eSign only
+                'debitStartDate': '20-07-2022',
+                'debitEndDate': '07-10-2022',
+                'maxAmount': '100',
+                'amountType': 'M',
+                'frequency': 'ADHO'   //  Available options DAIL, Week, MNTH, QURT, MIAN, YEAR, BIMN and ADHO
+            }
+        };
+ 
+        $.pnCheckout(configJson);
+        if(configJson.features.enableNewWindowFlow) {
+            pnCheckoutShared.openNewWindow();
+        }
+    });
+});
+</script>
+</head>
+
+
+
+<body>
+<form>
+
+<button id="btnSubmit">Make a Payment</button>
+</form>
+
+
+
+</body>
+</html>

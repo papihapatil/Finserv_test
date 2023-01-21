@@ -1,0 +1,713 @@
+
+<style>
+	
+	@media only screen and (max-width:768px){
+		.filt{		
+    margin-right: 243px;
+		}
+	}
+	</style>
+	
+	<style>
+
+#empTable  th, td {
+  border: 1px solid black;
+
+}
+	
+</style>
+
+<?php
+ 
+ $result = $this->session->flashdata('result');   if (isset($result)) {
+	   if($result=='1'){
+		   
+			   $res = $this->session->flashdata('message');
+			   if($res=='Operational User Deleted Sucessfully')
+			   {
+			   echo '<script> swal("success!", "Operational User Deleted Sucessfully", "success");</script>';
+			   $this->session->unset_userdata('result');	
+			   }
+			   
+						   
+			}
+			else if($result=='2')
+			{
+				$res = $this->session->flashdata('message');
+			   if($res=='Something get Wrong')
+			   {
+			   echo '<script> swal("warning!", "Something get Wrong", "warning");</script>';
+			   $this->session->unset_userdata('result');	
+			   }
+			   
+			}
+ }?>
+ 
+
+ <div class="c-body">
+   <main class="c-main">
+	   <div class="container-fluid">
+		   <div class="fade-in">
+			   <div class="row">
+				   <div class="col-md-12">
+					   <div class="card">
+						   <div class="card-body">
+							   <div class="row">
+								   <div class="col-sm-12">
+									   <div>
+										   <div class="">
+											   <div class="row">
+												 
+												
+											   </div>
+										   </div>
+										   <div class="row">
+
+	<div class="col-sm-6 col-lg-3">
+		<a >
+			<div class="card">
+				<div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+					<table class="table">
+  						<thead>
+    						<tr>
+ 						      <th scope="col">Loan Mitra</th>
+  						    </tr>
+  						</thead>
+ 						<tbody>
+ 					
+    						<tr>
+	     			           	<th scope="col"> 
+	     			           		<i class="fa fa-star fa-lg" style="color:green;"></i>
+	 								DSA Meetings in  month
+	 							</th>
+	   							<th scope="col">
+	   								<a style="margin-left: 8px; "  href="<?php echo base_url();?>index.php/BranchManager/BM_RO_souring"><?php echo $current;?></a></th>
+
+  						    </tr>
+   							
+    						<tr>
+    						    <th scope="col"> 
+    						   		<i class="fa fa-star fa-lg" style="color:blue;"></i>
+									Today's Meetings
+								</th>
+   								<th scope="col">
+   							<a style="margin-left: 8px; " href="<?php echo base_url();?>index.php/BranchManager/Today_souring"><?php echo $today;?></a></th>
+								
+							</tr>
+							
+  						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</a>
+	</div>
+	
+	
+		<div class="col-sm-6 col-lg-3">
+		<a >
+			<div class="card">
+				<div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+					<table class="table">
+  						<thead>
+    						<tr>
+ 						      <th scope="col">NTB Customer</th>
+  						    </tr>
+  						</thead>
+ 						<tbody>
+ 					
+    						<tr>
+	     			           	<th scope="col"> 
+	     			           		<i class="fa fa-star fa-lg" style="color:green;"></i>
+	 								NTB Meetings in  month
+	 							</th>
+	   							<th scope="col">
+	   								<a style="margin-left: 8px; "  href="<?php echo base_url();?>index.php/BranchManager/BM_NTB_souring"><?php  echo $ntbcurrent;?></a></th>
+
+  						    </tr>
+   							
+    						<tr>
+    						    <th scope="col"> 
+    						   		<i class="fa fa-star fa-lg" style="color:blue;"></i>
+									Today's Meetings
+								</th>
+   								<th scope="col">
+								<a style="margin-left: 8px; " href="<?php echo base_url();?>index.php/BranchManager/BM_NTB_Today_souring" ><?php echo $ntbtoday;?></a></th>
+						    </tr>
+						  
+  						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</a>
+	</div>
+	
+	<div class="col-sm-6 col-lg-3">
+		<a >
+			<div class="card">
+				<div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+					<table class="table">
+  						<thead>
+    						<tr>
+ 						      <th scope="col">Existing Customer</th>
+  						    </tr>
+  						</thead>
+ 						<tbody>
+ 					
+    						<tr>
+	     			           	<th scope="col"> 
+	     			           		<i class="fa fa-star fa-lg" style="color:green;"></i>
+	 								Existing Meetings in  month
+	 							</th>
+	   							<th scope="col">
+								<a style="margin-left: 8px; "  href="<?php echo base_url();?>index.php/BranchManager/BM_Existing_souring"><?php  echo $existing;?></a></th>
+
+  						    </tr>
+   							
+    						<tr>
+    						    <th scope="col"> 
+    						   		<i class="fa fa-star fa-lg" style="color:blue;"></i>
+									Today's Meetings
+								</th>
+   								<th scope="col">
+								<a style="margin-left: 8px; " href="<?php echo base_url();?>index.php/BranchManager/BM_Existing_Today_souring" ><?php echo $existingtoday;?></a></th>
+						    </tr>
+						  
+  						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</a>
+	</div>
+	
+		<div class="col-sm-6 col-lg-3">
+		<a >
+			<div class="card">
+				<div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
+					<table class="table">
+  						<thead>
+    						<tr>
+ 						      <th scope="col">Lead Customer</th>
+  						    </tr>
+  						</thead>
+ 						<tbody>
+ 					
+    						<tr>
+	     			           	<th scope="col"> 
+	     			           		<i class="fa fa-star fa-lg" style="color:green;"></i>
+	 								Lead Meetings in  month
+	 							</th>
+	   							<th scope="col">
+								<a style="margin-left: 8px; "  href="<?php echo base_url();?>index.php/BranchManager/BM_Lead_souring"><?php  echo $leadcurrent;?></a></th>
+
+  						    </tr>
+   							
+    						<tr>
+    						    <th scope="col"> 
+    						   		<i class="fa fa-star fa-lg" style="color:blue;"></i>
+									Today's Meetings
+								</th>
+   								<th scope="col">
+								<a style="margin-left: 8px; " href="<?php echo base_url();?>index.php/BranchManager/BM_Lead_Today_souring"><?php echo $leadtoday;?></a></th>
+						    </tr>
+						  
+  						</tbody>
+					</table>
+					
+				</div>
+			</div>
+		</a>
+	</div>
+	
+	</div>
+										   <hr>
+									   </div>
+									<div class="row">
+														<div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+					                                        <div style=" margin-top: 8px;" class="col">
+					                                         <label for="email" style="font-size: 16px; color: black; font-weight: bold;">Date Range</label>
+					                                          <select class="form-control"  name="Billing_month" id="Billing_months">
+					                                                         <option value="">Select</option>
+																			<!-- <option value="all" <?php if(isset($range)){if($range=='all'){echo 'selected';}} ?>>All Customers</option>-->
+																			  <option value="Today" <?php if(isset($range)){if($range=='Today'){echo 'selected';}} ?>>Today</option>
+					                                                       
+					                                                         <option value="Current_Month" <?php if(isset($range)){if($range=='Current_Month'){echo 'selected';}} ?>>Current Month</option>
+					                                                         <option value="Previous_Month"  <?php if(isset($range)){if($range=='Previous_Month'){echo 'selected';}} ?>>Previous Month</option>
+					                                                         <option value="Select_Range"  <?php if(isset($range)){if($range=='Select_Range'){echo 'selected';}} ?>> select Range</option>
+					                                          </select>
+					                                       </div>
+					                                       </div>
+					                                       <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+					                                           <div style=" margin-top: 8px;" class="col">
+					                                            <label for="email" style="font-size: 16px; color: black; font-weight: bold;">Start Date</label>
+					                                             <input  class="form-control Start_Date"  type="date" name="Start_Date" id="Start_Date_filters"   value="<?php if(isset($_GET['Start_Date'])){echo $_GET['Start_Date'];}else{echo  date('Y-m-d');}?>" >
+					                                          </div>  
+					                                       </div> 
+														     <input type="text" hidden value="<?php if(isset($_GET['Start_Date'])){echo $_GET['Start_Date'];}?>" id="start_date1">
+					                                       <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
+					                                           <div style=" margin-top: 8px;" class="col">
+					                                            <label for="email" style="font-size: 16px; color: black; font-weight: bold;">End Date</label>
+					                                             <input  class="form-control"  type="date" name="End_Date" id="End_Date_filters"  value="<?php  if(isset($_GET['End_Date'])){echo $_GET['End_Date'];}else{echo  date('Y-m-d');}?>" >
+					                                          </div>  
+					                                       </div> 
+														      <input type="text"  hidden value="<?php  if(isset($_GET['End_Date'])){echo $_GET['End_Date'];}?>" id="end_date1">
+									</div> 
+									<br>
+	   <div class="row">
+								   <div class="col-sm-6">						 
+<body class="wide comments example">
+   <div class="fw-body">
+	   <div class="content">
+		   <div style="overflow-x:auto;">
+			   <div class="demo-html">
+			   <div class="tab">
+				   <table id="empTable" class="display" style="width:100%">
+					   <thead>
+						   <tr>
+						       <th hidden >ID</th>
+							   <th>Employee Name</th>
+							   <th colspan="2">Lona Mitra Meeting</th>
+							   <th colspan="2">Customer Meeting</th>
+							  
+							   
+						   
+						   </tr>
+						     <tr >
+
+							   <th></th>
+							  <th >Existing</a></th>
+							   <th >New</th>
+							   <th>Existing</th>
+							<th>NTB</th>
+						  </tr>
+					   </thead>
+					  
+				   </table>
+				   </div>
+			   </div>
+		   </div>
+	   </div>
+   </div>
+</body>	
+  <div class="modal fade" id="deleteModel" tabindex="-1" role="dialog" 
+	     aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <!-- Modal Header -->
+	            <div class="modal-header">
+	            	<h4 class="modal-title" id="myModalLabel">
+	                    DELETE
+	                </h4>
+	                <button type="button" class="close" 
+	                   data-dismiss="modal">
+	                       <span aria-hidden="true">&times;</span>
+	                       <span class="sr-only">Close</span>
+	                </button>                
+	            </div>
+	            
+	            <!-- Modal Body -->
+	            <div class="modal-body">
+	                
+	                <form class="form-horizontal" role="form" action="<?php echo base_url(); ?>index.php/admin/delete_RO" method="POST" id="change_contact_status">
+	                  <div class="form-group">
+	                                <label  class="col-12 control-label padding-10">Are you sure you want to DELETE this Relationship Officer?</label>	                         
+	                    <input name="id" type="number" class="idform" hidden  />
+							 						
+	                  </div>                  
+
+	                  <!-- Modal Footer -->
+			            <div class="modal-footer">
+			                <button type="button" class="btn btn-default"
+			                        data-dismiss="modal">
+			                            CANCEL
+			                </button>
+			                <button type="submit" class="btn btn-primary">
+			                    DELETE IT
+			                </button>
+			            </div>
+	                </form>                
+	            </div>            
+	        </div>
+	    </div>
+	</div>
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</main>
+</div>
+<footer class="c-footer">
+<div>Copyright © 2020 Finaleap.</div>
+<div class="mfs-auto">Powered by Finaleap</div>
+</footer>
+</div>
+<script >
+		$(".modal_test ").on("click", function(){
+		  var dataId = $(this).attr("data-id");
+		  $(".idform").val(dataId);
+	  
+   });
+   </script>
+<script src="<?php echo base_url(); ?>adminn/vendors/@coreui/coreui-pro/js/coreui.bundle.min.js"></script>
+
+<script src="<?php echo base_url(); ?>adminn/vendors/@coreui/chartjs/js/coreui-chartjs.bundle.js"></script>
+<script src="<?php echo base_url(); ?>adminn/vendors/@coreui/utils/js/coreui-utils.js"></script>
+<script src="<?php echo base_url(); ?>adminn/js/main.js"></script>
+<script src="<?php echo base_url(); ?>js/main.js"></script>
+<script>
+function demo()
+	{
+		var $var=document.getElementById("filter_name");
+		alert($var);
+	}
+	</script>
+
+	   <script>
+        $(document).ready(function(){
+			//var filter = document.getElementById("filter").value;
+			var Start_Date=document.getElementById("start_date1").value;
+			var End_Date=document.getElementById("end_date1").value;
+            $('#empTable').DataTable({
+                'processing': true,
+                'serverSide': true,
+                'serverMethod': 'post',
+                'ajax': {
+                    //'url':'ajaxfile.php'
+                    'url': window.location.origin+"/finserv_test/dsa/dsa/index.php/Admin/Branch_BM_ro",
+					'data':{Start_Date:Start_Date,End_Date:End_Date},
+                },
+             
+                
+                'columns': [
+
+                    { data: 'FN' },
+					{ data: 'Existing' },
+					{ data: 'New' },
+					{ data: 'Customer_existing' },
+					{ data: 'Customer_ntb' },
+                ]
+				
+            });
+            
+		var value=$("#Billing_months").val();
+
+		if(value=='Current_Month')
+
+		{
+			
+				 var el_down = document.getElementById("Start_Date");
+				//alert(el_down);
+				 var date = new Date();
+				// document.write("Current Date: " + date );
+				 var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+
+				var dd = firstDay.getDate();
+				var mm = firstDay.getMonth() + 1;
+
+				var yyyy = firstDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var firstDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#Start_Date_filters').val(firstDay);
+				$('#Start_Date_filters').prop('readonly', true);
+				var lastDay =
+				new Date(date.getFullYear(), date.getMonth() + 1, 0);
+				var dd = lastDay.getDate();
+				var mm = lastDay.getMonth() + 1;
+
+				var yyyy = lastDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var lastDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#End_Date_filters').val(lastDay);
+				$('#End_Date_filters').prop('readonly', true);
+		}
+		if(value=='Previous_Month')
+
+		{
+				 var el_down = document.getElementById("Start_Date");
+				 var date = new Date();
+				// document.write("Current Date: " + date );
+				 var firstDay = new Date(date.getFullYear(), date.getMonth()- 1, 1);
+
+				var dd = firstDay.getDate();
+				var mm = firstDay.getMonth() + 1;
+
+				var yyyy = firstDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var firstDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#Start_Date_filters').val(firstDay);
+				$('#Start_Date_filters').prop('readonly', true);
+				var lastDay =
+				new Date(date.getFullYear(), date.getMonth() , 0);
+				var dd = lastDay.getDate();
+				var mm = lastDay.getMonth() + 1;
+
+				var yyyy = lastDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var lastDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#End_Date_filters').val(lastDay);
+				$('#End_Date_filters').prop('readonly', true);
+		}
+		if(value=='Today')
+
+		{
+			
+				 var el_down = document.getElementById("Start_Date");
+				//alert(el_down);
+				 var firstDay = new Date();
+				// document.write("Current Date: " + date );
+			//	 var firstDay = new Date(date.getFullYear(), date.getMonth()+1);
+
+				var dd = firstDay.getDate();
+				var mm = firstDay.getMonth() + 1;
+
+				var yyyy = firstDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var firstDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#Start_Date_filters').val(firstDay);
+				$('#Start_Date_filters').prop('readonly', true);
+				 var lastDay =new Date();
+				//var lastDay =new Date(date.getFullYear(), date.getMonth(),1);
+				var dd = lastDay.getDate();
+				var mm = lastDay.getMonth() + 1;
+
+				var yyyy = lastDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var lastDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#End_Date_filters').val(lastDay);
+				$('#End_Date_filters').prop('readonly', true);
+		}
+		if(value=='Select_Range')
+		{
+			/*if ( $('#Start_Date').is('[readonly]') ) { $('#Start_Date').prop('readonly', false); }
+			if ( $('#End_Date').is('[readonly]') ) { $('#End_Date').prop('readonly', false); }
+			$('#Start_Date').val('');
+			$('#End_Date').val('');*/
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const Start_Date = urlParams.get('Start_Date');
+			
+
+			const End_Date = urlParams.get('End_Date');
+			$('#Start_Date_filters').val(Start_Date);
+			$('#End_Date_filters').val(End_Date);
+
+
+
+		}
+
+	
+        });
+		
+        </script>
+		<script>
+		 
+    
+    $( "#Billing_months" ).change(function()
+      {
+  
+         var value=$("#Billing_months").val();
+      
+         var Start_Date = $('#Start_Date_filters').val();
+       var End_Date=$('#End_Date_filters').val();
+      
+       var range=$('#Billing_months').val();
+
+         if(value=='Current_Month' )
+  
+      {
+        
+        var el_down = document.getElementById("Start_Date");
+           var date = new Date();
+          // document.write("Current Date: " + date );
+           var firstDay = new Date(date.getFullYear(), date.getMonth(), 1);
+  
+          var dd = firstDay.getDate();
+          var mm = firstDay.getMonth() + 1;
+  
+          var yyyy = firstDay.getFullYear();
+          if (dd < 10) {
+            dd = '0' + dd;
+          }
+          if (mm < 10) {
+            mm = '0' + mm;
+          }
+          var firstDay =  yyyy+ '-' + mm + '-'+ dd;
+          $('#Start_Date').val(firstDay);
+          $('#Start_Date').prop('readonly', true);
+          var lastDay =
+          new Date(date.getFullYear(), date.getMonth() + 1, 0);
+          var dd = lastDay.getDate();
+          var mm = lastDay.getMonth() + 1;
+  
+          var yyyy = lastDay.getFullYear();
+          if (dd < 10) {
+            dd = '0' + dd;
+          }
+          if (mm < 10) {
+            mm = '0' + mm;
+          }
+          var lastDay =  yyyy+ '-' + mm + '-'+ dd;
+          $('#End_Date').val(lastDay);
+         $('#End_Date').prop('readonly', true);
+                  window.location.replace("/finserv_test/dsa/dsa/index.php/admin/Salestracker?Start_Date="+firstDay+"&End_Date="+lastDay+"&range="+range);
+      }
+      if(value=='Previous_Month')
+  
+      {
+           var el_down = document.getElementById("Start_Date");
+		   
+           var date = new Date();
+          // document.write("Current Date: " + date );
+           var firstDay = new Date(date.getFullYear(), date.getMonth()- 1, 1);
+		
+          var dd = firstDay.getDate();
+          var mm = firstDay.getMonth() + 1;
+  
+          var yyyy = firstDay.getFullYear();
+          if (dd < 10) {
+            dd = '0' + dd;
+          }
+          if (mm < 10) {
+            mm = '0' + mm;
+          }
+          var firstDay =  yyyy+ '-' + mm + '-'+ dd;
+          $('#Start_Date').val(firstDay);
+          $('#Start_Date').prop('readonly', true);
+          var lastDay =
+          new Date(date.getFullYear(), date.getMonth() , 0);
+          var dd = lastDay.getDate();
+          var mm = lastDay.getMonth() + 1;
+  
+          var yyyy = lastDay.getFullYear();
+          if (dd < 10) {
+            dd = '0' + dd;
+          }
+          if (mm < 10) {
+            mm = '0' + mm;
+          }
+          var lastDay =  yyyy+ '-' + mm + '-'+ dd;
+          $('#End_Date').val(lastDay);
+          $('#End_Date').prop('readonly', true);
+          window.location.replace("/finserv_test/dsa/dsa/index.php/admin/Salestracker?Start_Date="+firstDay+"&End_Date="+lastDay+"&range="+range);
+      }
+	  	 if(value=='Today')
+
+		{
+			
+				 var el_down = document.getElementById("Start_Date");
+				//alert(el_down);
+				 var firstDay = new Date();
+				// document.write("Current Date: " + date );
+			//	 var firstDay = new Date(date.getFullYear(), date.getMonth()+1);
+
+				var dd = firstDay.getDate();
+				var mm = firstDay.getMonth() + 1;
+
+				var yyyy = firstDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var firstDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#Start_Date_filters').val(firstDay);
+				$('#Start_Date_filters').prop('readonly', true);
+				 var lastDay =new Date();
+				//var lastDay =new Date(date.getFullYear(), date.getMonth(),1);
+				var dd = lastDay.getDate();
+				var mm = lastDay.getMonth() + 1;
+
+				var yyyy = lastDay.getFullYear();
+				if (dd < 10) {
+					dd = '0' + dd;
+				}
+				if (mm < 10) {
+					mm = '0' + mm;
+				}
+				var lastDay =  yyyy+ '-' + mm + '-'+ dd;
+				$('#End_Date_filters').val(lastDay);
+				$('#End_Date_filters').prop('readonly', true);
+		}
+      if(value=='Select_Range')
+      {
+        //alert("hello");
+        if ( $('#Start_Date_filters').is('[readonly]') ) { $('#Start_Date_filters').prop('readonly', false); }
+        if ( $('#End_Date_filters').is('[readonly]') ) { $('#End_Date_filters').prop('readonly', false); }
+        $('#Start_Date_filters').val('');
+        $('#End_Date_filters').val('');
+         
+      }
+        
+      });
+	   $( "#Start_Date_filters" ).change(function()
+      {
+		
+         var Start_Date = $('#Start_Date_filters').val();
+       var End_Date=$('#End_Date_filters').val();
+       var range=$('#Billing_months').val();
+       
+         window.location.replace("/finserv_test/dsa/dsa/index.php/admin/Salestracker?Start_Date="+Start_Date+"&End_Date="+End_Date+"&range="+range);
+  
+        
+      });
+    
+    $( "#End_Date_filters" ).change(function()
+      {
+  
+         var Start_Date = $('#Start_Date_filters').val();
+		// alert(Start_Date);
+       var End_Date=$('#End_Date_filters').val();
+       var range=$('#Billing_months').val();
+       
+          window.location.replace("/finserv_test/dsa/dsa/index.php/admin/Salestracker?Start_Date="+Start_Date+"&End_Date="+End_Date+"&range="+range);
+  
+        
+      });
+    
+   
+
+		</script>
+	
+       	
+
+</body>
+</html>

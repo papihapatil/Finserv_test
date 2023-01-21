@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="Finaleap">
+	<meta name="author" content="Łukasz Holeczek">
+	<meta name="keyword" content="Finaleap">
+	<title>Finaleap Admin</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="<?php echo base_url(); ?>adminn/css/style.css" rel="stylesheet">
+	<link href="<?php echo base_url(); ?>adminn/vendors/@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  gtag('config', 'UA-118965717-1');
+	</script>
+	</head>
+	<body class="c-app">
+	<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
+	<div class="c-sidebar-brand d-md-down-none" style="background-color: white;">
+	<img src="<?php echo base_url(); ?>images/logo.png"/>
+
+	</div>
+
+	<?php if(!empty($row))	{ if($row->Profile_Status!="Complete" && $row->ROLE==14 )  {  ?>
+	<ul class="c-sidebar-nav">
+
+		
+		<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/BranchManager/profile">
+			<svg class="c-sidebar-nav-icon">
+				<i class="fa fa-user-circle-o" style="margin-right: 20px;"></i>	
+		</svg> Profile</a></li>
+
+			
+	</ul>
+	<?php  }  else   {  ?>
+	<ul class="c-sidebar-nav">
+
+		<li class="c-sidebar-nav-item">
+			<a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/BranchManager">	<svg class="c-sidebar-nav-icon"><i class="fa fa-th-large" style="margin-right: 20px;"></i></svg> Dashboard</a>
+		</li>
+		<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/BranchManager/profile">
+			<svg class="c-sidebar-nav-icon">
+				<i class="fa fa-user-circle-o" style="margin-right: 20px;"></i>	
+			</svg> Profile</a>
+		</li>
+		<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/BranchManager/customers">
+			<svg class="c-sidebar-nav-icon">
+				<i class="fa fa-users" style="margin-right: 20px;"></i>	
+			</svg> Customers</a>
+	   </li>
+	   <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/admin/Connector?s=all">
+			<svg class="c-sidebar-nav-icon">
+				<i class="fa fa-users" style="margin-right: 20px;"></i>	
+			</svg> Connectors</a>
+	   </li>
+		<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/admin/Relationship_Officer?s=all">
+			<svg class="c-sidebar-nav-icon">
+				<i class="fa fa-users" style="margin-right: 20px;"></i>	
+			</svg> Relationship Officer</a>
+	   </li>
+	   <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/admin/dsa?s=all">
+			<svg class="c-sidebar-nav-icon">
+				<i class="fa fa-users" style="margin-right: 20px;"></i>	
+			</svg> DSA</a>
+	   </li>
+		<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/BranchManager/Create_lead">
+		<svg class="c-sidebar-nav-icon">
+			<i class="fa fa-users" style="margin-right: 20px;"></i>	
+		</svg> Create new Lead</a>
+	   </li>
+		<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/dsa/View_Lead">
+		<svg class="c-sidebar-nav-icon">
+			<i class="fa fa-users" style="margin-right: 20px;"></i>	
+		</svg> View Lead</a></li>
+
+	<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/BranchManager/changePassword">
+		<svg class="c-sidebar-nav-icon">
+			<i class="fa fa-file" style="margin-right: 20px;"></i>	
+		</svg> Change Password</a>
+	</li>
+
+	<li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="<?php echo base_url();?>index.php/logout">
+		<svg class="c-sidebar-nav-icon">
+			<i class="fa fa-arrow-circle-left" style="margin-right: 20px;"></i>	
+		</svg> Logout</a>
+	</li>
+	</ul>
+	<?php  } }	?>	

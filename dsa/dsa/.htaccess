@@ -1,0 +1,9 @@
+
+# HTID:15067224: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DirectoryIndex /dsa/dsa/index.php
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:15067224:
+
+php_value upload_max_filesize 40M
+php_value post_max_size 42M
+

@@ -1,0 +1,198 @@
+ALTER TABLE `USER_DETAILS` CHANGE `REGI_LINK` `REGI_LINK` VARCHAR(120) NULL COMMENT 'When DSA will create user account then system will send link to customer mobile/emil for filling remailing details. If user creates acc by own then no link will be generate.';
+
+//------------------------chnages  by papiha-----------------------//
+ALTER TABLE `customer_income_details` ADD `BIS_NAME` VARCHAR(100) NULL AFTER `BIS_GST`;
+ALTER TABLE `customer_more_details` ADD `CONSENT` VARCHAR(5) NOT NULL AFTER `TOTAL_BRO_SIS`, ADD `STATUS` VARCHAR(30) NOT NULL AFTER `CONSENT`, ADD `VERIFY_PAN` VARCHAR(10) NOT NULL AFTER `STATUS`;
+ALTER TABLE `customer_more_details` ADD `verify_GST_status` VARCHAR(5) NULL AFTER `VERIFY_PAN`, ADD `verify_Bis_Pan_status` VARCHAR(5) NULL AFTER `verify_GST_status`;
+ALTER TABLE `customer_more_details` ADD `Aadhar_Esign_Consent` VARCHAR(5) NULL AFTER `verify_Bis_Pan_status`;
+ALTER TABLE `customer_income_details` ADD `CUST_TYPE` VARCHAR(50) NULL AFTER `CUST_ID`;
+ALTER TABLE `customer_income_details` ADD `STATUS` VARCHAR(50) NULL AFTER `UPDATED_AT`;
+ALTER TABLE `customer_more_details` ADD `NO_OF_DEPENDANTS` INT NULL AFTER `TOTAL_BRO_SIS`;
+ALTER TABLE `customer_more_details` ADD `NATIVE_PLACE` VARCHAR(50) NULL AFTER `RES_ADDRS_CITY`;
+ALTER TABLE `coapplicant_details` ADD `NATIVE_PLACE` VARCHAR(50) NULL AFTER `RES_ADDRS_CITY`;
+ALTER TABLE `coapplicant_details` ADD `NO_OF_DEPENDANTS` INT NULL AFTER `TOTAL_BRO_SIS`;
+ALTER TABLE `coapplicant_income_details` ADD `COAPP_TYPE` VARCHAR(50) NULL AFTER `COAPP_ID`;
+///-------------------changes on 19_2_2020----------------------------------//
+ALTER TABLE `coapplicant_details` ADD `VERIFY_PAN` VARCHAR(20) NULL AFTER `DOC_LAST_SAVED`;
+ALTER TABLE `coapplicant_income_details` ADD `REGI_NO` VARCHAR(20) NULL AFTER `BIS_GST`;
+ALTER TABLE `coapplicant_income_details` ADD `BIS_NAME` VARCHAR(1000) NULL AFTER `REGI_NO`;
+ALTER TABLE `coapplicant_income_details` ADD `verify_GST_status` VARCHAR(5) NULL AFTER `UPDATED_AT`;
+ALTER TABLE `coapplicant_income_details` ADD `verify_Bis_Pan_status` VARCHAR(5) NULL AFTER `verify_GST_status`;
+///---------------------------changes on 22_02_21-------------------------------------------------
+ALTER TABLE `customer_more_details` ADD `verify_Passport_no` VARCHAR(5) NULL AFTER `Aadhar_Esign_Consent`;
+ALTER TABLE `customer_more_details` ADD `verify_Driving_l_Number` VARCHAR(5) NULL AFTER `verify_Passport_no`;
+ALTER TABLE `customer_more_details` ADD `verify_EPFO_Number` VARCHAR(5) NULL AFTER `verify_Driving_l_Number`;
+ALTER TABLE `customer_more_details` ADD `verify_Account_Number` VARCHAR(5) NULL AFTER `verify_EPFO_Number`;
+ALTER TABLE `customer_more_details` ADD `verify_Official_Mail` VARCHAR(5) NULL AFTER `verify_Account_Number`;
+ALTER TABLE `customer_more_details` ADD `verify_Vechical` VARCHAR(5) NULL AFTER `verify_Official_Mail`;
+////-----------------------Changes 0n 23_02_2021------------------
+ALTER TABLE `customer_more_details` ADD `verify_It_Returns` VARCHAR(5) NULL AFTER `verify_Vechical`, ADD `verify_Udyog_Aadhar` VARCHAR(5) NULL AFTER `verify_It_Returns`, ADD `verify_Shop_Act` VARCHAR(5) NULL AFTER `verify_Udyog_Aadhar`;
+ALTER TABLE `customer_more_details` ADD `verify_Professional_Certificate` VARCHAR(5) NULL AFTER `verify_Shop_Act`, ADD `verify_Residence` VARCHAR(5) NULL AFTER `verify_Professional_Certificate`, ADD `verify_Employment` VARCHAR(5) NULL AFTER `verify_Residence`, ADD `Recidance_Comment` VARCHAR(500) NULL AFTER `verify_Employment`, ADD `Employment_Comment` VARCHAR(500) NULL AFTER `Recidance_Comment`;
+ALTER TABLE `coapplicant_income_details` ADD `verify_Passport_no` VARCHAR(5) NULL AFTER `verify_Bis_Pan_status`;
+ALTER TABLE `coapplicant_income_details` ADD `verify_Driving_l_Number` VARCHAR(5) NULL AFTER `verify_Passport_no`;
+ALTER TABLE coapplicant_income_details ROW_FORMAT=DYNAMIC
+ALTER TABLE `coapplicant_income_details` ADD `verify_EPFO_Number` VARCHAR(5) NULL AFTER `verify_Driving_l_Number`
+ALTER TABLE `coapplicant_income_details` ADD `verify_Account_Number` VARCHAR(5) NULL AFTER `verify_EPFO_Number`
+ALTER TABLE `coapplicant_income_details` ADD `verify_Official_Mail` VARCHAR(5) NULL AFTER `verify_Account_Number`
+ALTER TABLE `coapplicant_income_details` ADD `verify_Vechical` VARCHAR(5) NULL AFTER `verify_Official_Mail`
+ALTER TABLE `coapplicant_income_details` ADD `verify_It_Returns` VARCHAR(5) NULL AFTER `verify_Vechical`, ADD `verify_Udyog_Aadhar` VARCHAR(5) NULL AFTER `verify_It_Returns`, ADD `verify_Shop_Act` VARCHAR(5) NULL AFTER `verify_Udyog_Aadhar`
+ALTER TABLE `coapplicant_income_details` ADD `verify_Professional_Certificate` VARCHAR(5) NULL AFTER `verify_Shop_Act`, ADD `verify_Residence` VARCHAR(5) NULL AFTER `verify_Professional_Certificate`, ADD `verify_Employment` VARCHAR(5) NULL AFTER `verify_Residence`, ADD `Recidance_Comment` VARCHAR(500) NULL AFTER `verify_Employment`, ADD `Employment_Comment` VARCHAR(500) NULL AFTER `Recidance_Comment`
+///--------------------------changes on 24_02_2021-------------------------------
+ALTER TABLE `customer_more_details` ADD `Passport_available` VARCHAR(5) NULL AFTER `Employment_Comment`;
+ALTER TABLE `customer_more_details` ADD `Passport_Number` VARCHAR(10) NULL AFTER `Passport_available`;
+ALTER TABLE `customer_more_details` ADD `Driving_l_available` VARCHAR(5) NULL AFTER `Passport_Number`;
+ALTER TABLE `customer_more_details` ADD `Driving_l_Number` VARCHAR(16) NULL AFTER `Driving_l_available`;
+ALTER TABLE `customer_more_details` ADD `Vechical_NO_available` VARCHAR(5) NULL AFTER `Driving_l_Number`;
+ALTER TABLE `customer_more_details` ADD `Vechical_Number` VARCHAR(10) NULL AFTER `Vechical_NO_available`;
+ALTER TABLE `customer_more_details` ADD `Account_Number_available` VARCHAR(5) NULL AFTER `Vechical_Number`;
+ALTER TABLE `customer_more_details` ADD `Account_Number` VARCHAR(20) NULL AFTER `Account_Number_available`;
+ALTER TABLE `customer_more_details` ADD `EPFO_Number_available` VARCHAR(5) NULL AFTER `Account_Number`;
+ALTER TABLE `customer_more_details` ADD `EPFO_Number` VARCHAR(20) NULL AFTER `EPFO_Number_available`;
+//----------------------------changes on 25_02_2020----------------------------------------
+ALTER TABLE `customer_more_details` ADD `verify_Salary` VARCHAR(5) NULL AFTER `EPFO_Number`;
+ALTER TABLE `customer_more_details` ADD `verify_credit_salary` VARCHAR(5) NULL AFTER `verify_Salary`;
+ALTER TABLE `customer_more_details` ADD `verify_obligation` VARCHAR(5) NULL AFTER `verify_credit_salary`;
+ALTER TABLE `customer_more_details` ADD `verify_residual_income` VARCHAR(5) NULL AFTER `verify_obligation`;
+//---------------------changes on 26_02_2021-------------------------------------------//
+CREATE TABLE `cam_credit_analysis` (
+  `ID` varchar(20) DEFAULT NULL,
+  `verify_salary` varchar(5) DEFAULT NULL,
+  `credit_salary` float DEFAULT NULL,
+  `verify_credit_salary` varchar(5) DEFAULT NULL,
+  `verify_obligation` varchar(5) DEFAULT NULL,
+  `residual_income` float DEFAULT NULL,
+  `verify_residual_income` varchar(5) DEFAULT NULL,
+  `foir` int(11) DEFAULT NULL,
+  `eligibility` int(11) DEFAULT NULL,
+  `epf_deduction_1` float DEFAULT NULL,
+  `epf_deduction_2` float DEFAULT NULL,
+  `epf_deduction_3` float DEFAULT NULL,
+  `loan_advance_deduction_1` float DEFAULT NULL,
+  `loan_advance_deduction_2` float DEFAULT NULL,
+  `loan_advance_deduction_3` float DEFAULT NULL,
+  `any_other_deduction_1` float DEFAULT NULL,
+  `any_other_deduction_2` float DEFAULT NULL,
+  `any_other_deduction_3` float DEFAULT NULL,
+  `net_salary_1` float DEFAULT NULL,
+  `net_salary_2` float DEFAULT NULL,
+  `net_salary_3` float DEFAULT NULL,
+  `avg_salary` float DEFAULT NULL,
+  `avg_loan_advance_deduction` float DEFAULT NULL,
+  `avg_net_salary` float DEFAULT NULL,
+  `b_s_avg_balance` float DEFAULT NULL,
+  `b_s_total_credits` float DEFAULT NULL,
+  `b_s_total_debits` float DEFAULT NULL,
+  `b_s_salary` float DEFAULT NULL,
+  `b_s_reimbursements` float DEFAULT NULL,
+  `b_s_houshold` float DEFAULT NULL,
+  `b_s_emi` float DEFAULT NULL,
+  `b_s_charges` float DEFAULT NULL,
+  `b_s_cheque_bounce_charges` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE `cam_credit_analysis`
+  ADD UNIQUE KEY `ID` (`ID`);
+ALTER TABLE `coapplicant_income_details` ADD `EPFO_Number_available` VARCHAR(5) NULL AFTER `Employment_Comment`, ADD `EPFO_Number` VARCHAR(20) NULL AFTER `EPFO_Number_available`;
+ALTER TABLE `coapplicant_income_details` ADD `Passport_available` VARCHAR(5) NULL AFTER `EPFO_Number`;
+ALTER TABLE `coapplicant_income_details` ADD `Passport_Number` VARCHAR(20) NULL AFTER `Passport_available`;
+ALTER TABLE `coapplicant_income_details` ADD `Driving_l_available` VARCHAR(5) NULL AFTER `Passport_Number`, ADD `Driving_l_Number` VARCHAR(20) NULL AFTER `Driving_l_available`;
+ALTER TABLE `coapplicant_income_details` ADD `Vechical_NO_available` VARCHAR(5) NULL AFTER `Driving_l_Number`, ADD `Vechical_Number` VARCHAR(20) NULL AFTER `Vechical_NO_available`;
+ALTER TABLE `coapplicant_income_details` ADD `Account_Number_available` VARCHAR(5) NULL AFTER `Vechical_Number`, ADD `Account_Number` VARCHAR(20) NULL AFTER `Account_Number_available`;
+///---------------------------------changes on 1_03_2021----------------------------------------------------------------------//
+ALTER TABLE `customer_more_details` ADD `Official_mail_available` VARCHAR(5) NULL AFTER `verify_residual_income`, ADD `Official_mail` VARCHAR(50) NULL AFTER `Official_mail_available`;
+ALTER TABLE `coapplicant_income_details` ADD `Official_mail_available` VARCHAR(5) NULL AFTER `Account_Number`, ADD `Official_mail` VARCHAR(50) NULL AFTER `Official_mail_available`;
+///---------------------------------------------changes on 2_03_2021--------------------------------------------------------//
+CREATE TABLE `coapp_cam_credit_analysis` (
+  `ID` varchar(20) DEFAULT NULL,
+  `verify_salary` varchar(5) DEFAULT NULL,
+  `credit_salary` float DEFAULT NULL,
+  `verify_credit_salary` varchar(5) DEFAULT NULL,
+  `verify_obligation` varchar(5) DEFAULT NULL,
+  `residual_income` float DEFAULT NULL,
+  `verify_residual_income` varchar(5) DEFAULT NULL,
+  `foir` int(11) DEFAULT NULL,
+  `eligibility` int(11) DEFAULT NULL,
+  `epf_deduction_1` float DEFAULT NULL,
+  `epf_deduction_2` float DEFAULT NULL,
+  `epf_deduction_3` float DEFAULT NULL,
+  `loan_advance_deduction_1` float DEFAULT NULL,
+  `loan_advance_deduction_2` float DEFAULT NULL,
+  `loan_advance_deduction_3` float DEFAULT NULL,
+  `any_other_deduction_1` float DEFAULT NULL,
+  `any_other_deduction_2` float DEFAULT NULL,
+  `any_other_deduction_3` float DEFAULT NULL,
+  `net_salary_1` float DEFAULT NULL,
+  `net_salary_2` float DEFAULT NULL,
+  `net_salary_3` float DEFAULT NULL,
+  `avg_salary` float DEFAULT NULL,
+  `avg_loan_advance_deduction` float DEFAULT NULL,
+  `avg_net_salary` float DEFAULT NULL,
+  `b_s_avg_balance` float DEFAULT NULL,
+  `b_s_total_credits` float DEFAULT NULL,
+  `b_s_total_debits` float DEFAULT NULL,
+  `b_s_salary` float DEFAULT NULL,
+  `b_s_reimbursements` float DEFAULT NULL,
+  `b_s_houshold` float DEFAULT NULL,
+  `b_s_emi` float DEFAULT NULL,
+  `b_s_charges` float DEFAULT NULL,
+  `b_s_cheque_bounce_charges` float DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+ALTER TABLE `user_details` ADD `cam_status` VARCHAR(50) NULL AFTER `USER_TYPE`;
+/------------------------------------changes done on 03_03_2021---------------------------------------//
+ALTER TABLE `cam_credit_analysis` ADD `Gross_Total_Income_1` FLOAT NULL AFTER `b_s_cheque_bounce_charges`, ADD `Gross_Total_Income_2` FLOAT NULL AFTER `Gross_Total_Income_1`, ADD `Gross_Total_Income_3` FLOAT NULL AFTER `Gross_Total_Income_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Net_Sales_1` FLOAT NULL AFTER `Gross_Total_Income_3`, ADD `Net_Sales_2` FLOAT NULL AFTER `Net_Sales_1`, ADD `Net_Sales_3` FLOAT NULL AFTER `Net_Sales_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Gross_Profit_1` FLOAT NULL AFTER `Net_Sales_3`, ADD `Gross_Profit_2` FLOAT NULL AFTER `Gross_Profit_1`, ADD `Gross_Profit_3` FLOAT NULL AFTER `Gross_Profit_2`, ADD `Interest_Expense_1` FLOAT NULL AFTER `Gross_Profit_3`, ADD `Interest_Expense_2` FLOAT NULL AFTER `Interest_Expense_1`, ADD `Interest_Expense_3` FLOAT NULL AFTER `Interest_Expense_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Depreciation_1` FLOAT NULL AFTER `Interest_Expense_3`, ADD `Depreciation_2` FLOAT NULL AFTER `Depreciation_1`, ADD `Depreciation_3` FLOAT NULL AFTER `Depreciation_2`, ADD `PBT_1` FLOAT NULL AFTER `Depreciation_3`, ADD `PBT_2` FLOAT NULL AFTER `PBT_1`, ADD `PBT_3` FLOAT NULL AFTER `PBT_2`;
+ALTER TABLE `cam_credit_analysis` ADD `PAT_1` FLOAT NULL AFTER `PBT_3`, ADD `PAT_2` FLOAT NULL AFTER `PAT_1`, ADD `PAT_3` FLOAT NULL AFTER `PAT_2`, ADD `Networth_1` FLOAT NULL AFTER `PAT_3`, ADD `Networth_2` FLOAT NULL AFTER `Networth_1`, ADD `Networth_3` FLOAT NULL AFTER `Networth_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Debt_1` FLOAT NULL AFTER `Networth_3`, ADD `Debt_2` FLOAT NULL AFTER `Debt_1`, ADD `Debt_3` FLOAT NULL AFTER `Debt_2`, ADD `Working_Capital_1` FLOAT NULL AFTER `Debt_3`, ADD `Working_Capital_2` FLOAT NULL AFTER `Working_Capital_1`, ADD `Working_Capital_3` FLOAT NULL AFTER `Working_Capital_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Creditors_1` FLOAT NULL AFTER `Working_Capital_3`, ADD `Creditors_2` FLOAT NULL AFTER `Creditors_1`, ADD `Creditors_3` FLOAT NULL AFTER `Creditors_2`, ADD `Fixed_Assets_1` FLOAT NULL AFTER `Creditors_3`, ADD `Fixed_Assets_2` FLOAT NULL AFTER `Fixed_Assets_1`, ADD `Fixed_Assets_3` FLOAT NULL AFTER `Fixed_Assets_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Debtors_1` FLOAT NULL AFTER `Fixed_Assets_3`, ADD `Debtors_2` FLOAT NULL AFTER `Debtors_1`, ADD `Debtors_3` FLOAT NULL AFTER `Debtors_2`, ADD `Bank_Balance_1` FLOAT NULL AFTER `Debtors_3`, ADD `Bank_Balance_2` FLOAT NULL AFTER `Bank_Balance_1`, ADD `Bank_Balance_3` FLOAT NULL AFTER `Bank_Balance_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Top_ Debtors_1` VARCHAR(50) NULL AFTER `Bank_Balance_3`, ADD `Top_ Debtors_2` VARCHAR(50) NULL AFTER `Top_ Debtors_1`, ADD `Top_ Debtors_3` VARCHAR(50) NULL AFTER `Top_ Debtors_2`, ADD `Top_Creditors_1` VARCHAR(50) NULL AFTER `Top_ Debtors_3`, ADD `Top_Creditors_2` VARCHAR(50) NULL AFTER `Top_Creditors_1`, ADD `Top_Creditors_3` VARCHAR(50) NULL AFTER `Top_Creditors_2`;
+ALTER TABLE `cam_credit_analysis` ADD `Sales_cash_1` FLOAT NULL AFTER `Top_Creditors_3`, ADD `Sales_cash_2` FLOAT NULL AFTER `Sales_cash_1`, ADD `Sales_cash_3` FLOAT NULL AFTER `Sales_cash_2`, ADD `Sales_cash_4` FLOAT NULL AFTER `Sales_cash_3`, ADD `Sales_cash_5` FLOAT NULL AFTER `Sales_cash_4`, ADD `Sales_cash_6` FLOAT NULL AFTER `Sales_cash_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Purchase_cash_1` FLOAT NULL AFTER `Sales_cash_6`, ADD `Purchase_cash_2` FLOAT NULL AFTER `Purchase_cash_1`, ADD `Purchase_cash_3` FLOAT NULL AFTER `Purchase_cash_2`, ADD `Purchase_cash_4` FLOAT NULL AFTER `Purchase_cash_3`, ADD `Purchase_cash_5` FLOAT NULL AFTER `Purchase_cash_4`, ADD `Purchase_cash_6` FLOAT NULL AFTER `Purchase_cash_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Sales_bank_1` FLOAT NULL AFTER `Purchase_cash_6`, ADD `Sales_bank_2` FLOAT NULL AFTER `Sales_bank_1`, ADD `Sales_bank_3` FLOAT NULL AFTER `Sales_bank_2`, ADD `Sales_bank_4` FLOAT NULL AFTER `Sales_bank_3`, ADD `Sales_bank_5` FLOAT NULL AFTER `Sales_bank_4`, ADD `Sales_bank_6` FLOAT NULL AFTER `Sales_bank_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Purchase_bank_1` FLOAT NULL AFTER `Sales_bank_6`, ADD `Purchase_bank_2` FLOAT NULL AFTER `Purchase_bank_1`, ADD `Purchase_bank_3` FLOAT NULL AFTER `Purchase_bank_2`, ADD `Purchase_bank_4` FLOAT NULL AFTER `Purchase_bank_3`, ADD `Purchase_bank_5` FLOAT NULL AFTER `Purchase_bank_4`, ADD `Purchase_bank_6` FLOAT NULL AFTER `Purchase_bank_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Labour_paid_1` FLOAT NULL AFTER `Purchase_bank_6`, ADD `Labour_paid_2` FLOAT NULL AFTER `Labour_paid_1`, ADD `Labour_paid_3` FLOAT NULL AFTER `Labour_paid_2`, ADD `Labour_paid_4` FLOAT NULL AFTER `Labour_paid_3`, ADD `Labour_paid_5` FLOAT NULL AFTER `Labour_paid_4`, ADD `Labour_paid_6` FLOAT NULL AFTER `Labour_paid_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Transport_charges_1` FLOAT NULL AFTER `Labour_paid_6`, ADD `Transport_charges_2` FLOAT NULL AFTER `Transport_charges_1`, ADD `Transport_charges_3` FLOAT NULL AFTER `Transport_charges_2`, ADD `Transport_charges_4` FLOAT NULL AFTER `Transport_charges_3`, ADD `Transport_charges_5` FLOAT NULL AFTER `Transport_charges_4`, ADD `Transport_charges_6` FLOAT NULL AFTER `Transport_charges_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Other_charges_1` FLOAT NULL AFTER `Transport_charges_6`, ADD `Other_charges_2` FLOAT NULL AFTER `Other_charges_1`, ADD `Other_charges_3` FLOAT NULL AFTER `Other_charges_2`, ADD `Other_charges_4` FLOAT NULL AFTER `Other_charges_3`, ADD `Other_charges_5` FLOAT NULL AFTER `Other_charges_4`, ADD `Other_charges_6` FLOAT NULL AFTER `Other_charges_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Total_income_1` FLOAT NULL AFTER `Other_charges_6`, ADD `Total_income_2` FLOAT NULL AFTER `Total_income_1`, ADD `Total_income_3` FLOAT NULL AFTER `Total_income_2`, ADD `Total_income_4` FLOAT NULL AFTER `Total_income_3`, ADD `Total_income_5` FLOAT NULL AFTER `Total_income_4`, ADD `Total_income_6` FLOAT NULL AFTER `Total_income_5`;
+ALTER TABLE `cam_credit_analysis` ADD `Total_Sales_cash` FLOAT NULL AFTER `Total_income_6`, ADD `Total_Purchase_cash` FLOAT NULL AFTER `Total_Sales_cash`, ADD `Total_Sales_bank` FLOAT NULL AFTER `Total_Purchase_cash`, ADD `Total_Purchase_bank` FLOAT NULL AFTER `Total_Sales_bank`, ADD `Total_Labour_paid` FLOAT NULL AFTER `Total_Purchase_bank`, ADD `Total_Transport_charges` FLOAT NULL AFTER `Total_Labour_paid`, ADD `Total_Other_charges` FLOAT NULL AFTER `Total_Transport_charges`, ADD `Total_Total_income` FLOAT NULL AFTER `Total_Other_charges`;
+///-------------------------------------------------change 0n 5_3_2021-----------------------------------//
+ALTER TABLE `credit_score_user_details` CHANGE `address_line_1` `address_line_1` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `credit_score_user_details` ADD `middle_name` VARCHAR(50) NULL AFTER `first_name`;
+///-----------------------------------------chnages on 6_3_2020------------------------------------------------//
+ALTER TABLE `coapplicant_details` ADD `USER_TYPE` VARCHAR(50) NULL AFTER `VERIFY_PAN`;
+ALTER TABLE `cam_credit_analysis` ADD `Top_Creditors_1_Amt` FLOAT NULL AFTER `Top_Creditors_3`, ADD `Top_Creditors_2_Amt` FLOAT NULL AFTER `Top_Creditors_1_Amt`, ADD `Top_Creditors_3_Amt` FLOAT NULL AFTER `Top_Creditors_2_Amt`, ADD `Top_Debtors_1_Amt` FLOAT NULL AFTER `Top_Creditors_3_Amt`, ADD `Top_Debtors_2_Amt` FLOAT NULL AFTER `Top_Debtors_1_Amt`;
+ALTER TABLE `cam_credit_analysis` ADD `Top_Debtors_3_Amt` FLOAT NULL AFTER `Top_Debtors_2_Amt`;
+//------------------------------------Changes on 9_3_2021----------------------------------------------------//
+ALTER TABLE `credit_bureau` ADD `score` FLOAT NOT NULL AFTER `terms`, ADD `response` TEXT NOT NULL AFTER `score`, ADD `score_success` TEXT NOT NULL AFTER `response`;
+ALTER TABLE `credit_bureau` CHANGE `score` `score` FLOAT NULL;
+ALTER TABLE `credit_bureau` CHANGE `response` `response` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL;
+ALTER TABLE `credit_bureau` CHANGE `score_success` `score_success` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL;
+ALTER TABLE `credit_bureau` ADD `dob` DATE NULL AFTER `city`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+    <title>Loan Calculator</title>
+  
+
+<body>
+    <div class="calculator">
+        <h1>Loan Calculator</h1>
+  
+        <!-- Calling Calculate function defined in app.js -->
+        <p>Amount (₹)     :
+            <input id="amount" type="number" 
+            onchange="Calculate()">
+        </p>
+  
+        <p>Interest Rate  :
+            <input id="rate" type="number" 
+            onchange="Calculate()">
+        </p>
+  
+        <p>Months to Pay :
+            <input id="months" type="number" 
+            onchange="Calculate()">
+        </p>
+  
+        <h2 id="total"></h2>
+		 
+    </div>
+  
+    <script>
+	function Calculate() {
+  
+    // Extracting value in the amount 
+    // section in the variable
+    const amount = document.querySelector("#amount").value;
+  
+    // Extracting value in the interest
+    // rate section in the variable
+    const rate = document.querySelector("#rate").value;
+  
+    // Extracting value in the months 
+    // section in the variable
+    const months = document.querySelector("#months").value;
+  
+    // Calculating interest per month
+    const interest = (amount * (rate * 0.01)) / months;
+      
+    // Calculating total payment
+    const total = ((amount / months) + interest).toFixed(2);
+  
+    document.querySelector("#total")
+        .innerHTML = "EMI : (₹)" + total;
+}  </script>
+</body>
+</html>
+
